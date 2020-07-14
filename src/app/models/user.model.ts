@@ -1,9 +1,25 @@
 import { Mother } from 'src/app/models/mother.model';
 
-export class User {
-    public Tz: string ;
-    public FName:  string;
-    public LName:  string;
+// export class User {
+//     public Tz: string ;
+//     public FName:  string;
+//     public LName:  string;
 
-    public  Mother: Mother;
+//     public  Mother: Mother;
+// }
+
+export class Users{
+    public Id: number;
+    public Name: string;
+    public Email: string;
+    public Phone: string;
+    public UserId: string;
+    public DateOfBirth: Date;
+    public Blood_Type: string;
+    public IsMother: boolean;
+    public IsNurse: boolean;
+    public IsSecretery: boolean;
+
 }
+    
+    
