@@ -5,5 +5,6 @@ export class DiaperChange{
     public Baby_Id: string;
     public Note: string;
     public Type: string;
+    
 
 }
