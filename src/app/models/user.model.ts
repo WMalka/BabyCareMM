@@ -1,4 +1,3 @@
-import { Mother } from 'src/app/models/mother.model';
 
 // export class User {
 //     public Tz: string ;
@@ -19,6 +18,8 @@ export class Users{
     public IsMother: boolean;
     public IsNurse: boolean;
     public IsSecretery: boolean;
+    public Password: string;
+    public Status: string;
 
 }
     

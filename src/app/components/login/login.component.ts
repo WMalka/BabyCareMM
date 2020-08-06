@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../../../app/models/user.model';
+import { Users } from '../../../app/models/user.model';
 import { UsersService } from 'src/app/services/users.service';
 
-//import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';//dialod
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';//dialod
 
 
 
@@ -18,13 +18,13 @@ export class LoginComponent implements OnInit {
 
   model: any = {};//111
 
-  users: User[];
+  users: Users[];
   title: string;
 
   constructor(private usersService: UsersService) { }
 
   ngOnInit() {
-    this.usersService.getUsers().subscribe((res: User[]) => {
+    this.usersService.getUsers().subscribe((res: Users[]) => {
       this.users = res;
       console.log(res);
     }, err => {

@@ -5,4 +5,5 @@ export class Baths{
     public Baby_Id: string;
     public Note: string;
 
+    
 }

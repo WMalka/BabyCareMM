@@ -1,17 +1,11 @@
-import { Babies } from 'src/app/models/baby.model';
-
-// export class Meal {
-//     public Id : number;
-//     public  BabyTz: string;
-//     public  MealTime: any; // need to change to date
-//     public  MealType:string;
-//     public  Baby :Baby
-// }
+import { MealType } from "./mealType.model";
 
 export class Meals{
     public DateTime: Date;
-    public type: number;
+    public Meals_Type_Id: number;
     public Id: number; 
     public Note: string;
-    public BabyId: string;
+    public Baby_Id: string;
+
+    public MealsType:MealType;
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Meal } from '../../models/meal.model';
+import { Meals } from '../../models/meal.model';
 
 @Component({
   selector: 'app-babies',
@@ -9,7 +9,7 @@ import { Meal } from '../../models/meal.model';
 
 export class BabiesComponent implements OnInit {
 
-  mealsBaby:Meal[]
+  mealsBaby:Meals[]
   
   constructor() { }
 
