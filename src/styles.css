@@ -58,9 +58,9 @@ button:focus {
     position: absolute;
     width: 30%;
     right: 5%;
-    top: 49px;
+    top: 15%;
     background: rgba(255, 255, 255, 0.5);
-    height: calc(100% - 49px);
+    height: 70%;
     text-align: right;
     /* direction: rtl; */
     color: #000000;
