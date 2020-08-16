@@ -24,7 +24,8 @@ const routes: Routes = [
 
   //{ path: 'meals', component: BabiesComponentMeal },//malkala
   { path: '**', component: LoginComponent },
-  
+  { path: '', pathMatch: 'full', redirectTo: '/home' },
+ 
 
 
 ];

@@ -1,34 +1,72 @@
-
-
 .myclass {
-	background-color:#22bd4b;
-	border-radius:28px;
-	border:1px solid #00f519;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Verdana;
-	font-size:17px;
-	font-weight:bold;
-	font-style:italic;
-	padding:6px 76px;
-	text-decoration:none;
-    text-shadow:0px 1px 0px #2f6627;
-    
-}/* len */
+    background-color: #22bd4b;
+    border-radius: 28px;
+    border: 1px solid #00f519;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Verdana;
+    font-size: 17px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 6px 76px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #2f6627;
+}
+
+
+/* len */
+
 .myclass:hover {
-	background-color:#60e319;
+    background-color: #60e319;
 }
+
 .myclass:active {
-	position:relative;
-	top:1px;
+    position: relative;
+    top: 1px;
 }
+
+.row {
+    margin: 0px;
+    width: 100%;
+}
+
 
 /* myButton */
 
+button.btn {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: transparent;
+    border: none;
+    border-radius: 0px;
+    box-shadow: none;
+    text-shadow: none;
+    height: 182px;
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+}
+
+.btn-meal {
+    background-image: url(/assets/images/ate.png);
+}
+
+.btn-bath {
+    background-image: url(/assets/images/bathed.png);
+}
+
+.btn-care {
+    background-image: url(/assets/images/cared.png);
+}
+
+.btn-diapered {
+    background-image: url(/assets/images/diapered.png);
+}
 
 
-.myButton {
+/* .myButton {
 	box-shadow:inset 1px 1px 23px -9px #efdcfb;
 	background:linear-gradient(to bottom, #dfbdfa 5%, #bc80ea 100%);
 	background-color:#dfbdfa;
@@ -50,4 +88,4 @@
 .myButton:active {
 	position:relative;
 	top:1px;
-}
+} */

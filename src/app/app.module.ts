@@ -19,8 +19,11 @@ import { BabiesComponent } from './../app/components/babies/babies.component';
 //import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { NurseComponent } from './components/nurse/nurse.component';
 import { NgbdModalBasic } from './components/modalBasic/modal-basic';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HeaderComponent } from './components/header/header.component';
 
 
+import {MatTableDataSource, MatTableModule, MatMenuModule, MatTabsModule, MatFormFieldModule, MatButtonModule, MatRippleModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -33,19 +36,36 @@ import { NgbdModalBasic } from './components/modalBasic/modal-basic';
     SecreteryComponentNewMother,
     SecreteryComponentNewNurse,
     NurseComponent,
-    NgbdModalBasic
+    NgbdModalBasic,
+    HeaderComponent,
+    
    // NgbdModalConfig,
    // BabiesComponentMeal,
     
   ],
- // exports: [
- // NgbdModalConfig,
-  //],
+ exports: [
+  MatTabsModule,
+  MatFormFieldModule ,
+  MatMenuModule,
+  MatButtonModule,
+  MatFormFieldModule,
+  MatMenuModule,
+  MatRippleModule,
+  ],
   imports: [
     HttpClientModule,
     //HttpModule,
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
+    MatTabsModule,
+    MatFormFieldModule ,
+    MatMenuModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatMenuModule,
+    MatRippleModule,
+    
     //NgbModule,
 
   ],

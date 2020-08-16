@@ -1,6 +1,135 @@
-/* You can add global styles to this file, and also import other style files */
-/* @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";this was needed to make bootstrap work */
+/* @import '@angular/material/prebuilt-themes/indigo-pink.css'; */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+    height: 100%;
+}
 
+@font-face {
+    font-family: 'M PLUS Rounded 1c';
+    src: url(/assets/fonts/M_PLUS_Rounded_1c/MPLUSRounded1c-Regular.ttf) format("truetype");
+    font-weight: 500;
+}
+
+body * {
+    font-family: 'M PLUS Rounded 1c'!important;
+}
+
+body {
+    margin: 0;
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    /* font-family: Roboto, "Helvetica Neue", sans-serif; */
+}
+
+.bg {
+    /* The image used */
+    background-image: url("~/assets/images/bg.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    opacity: 0.45;
+    z-index: 0;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+
+.mat-tab-group.mat-primary .mat-ink-bar,
+.mat-tab-nav-bar.mat-primary .mat-ink-bar {
+    background-color: #ff0080;
+}
+
+a:hover {
+    color: #000000;
+    text-decoration: none;
+}
+
+button:focus {
+    outline: none;
+}
+
+.body-content,
+.body-content-large {
+    padding: 30px 60px 0px 60px;
+    position: absolute;
+    width: 30%;
+    right: 5%;
+    top: 49px;
+    background: rgba(255, 255, 255, 0.5);
+    height: calc(100% - 49px);
+    text-align: right;
+    /* direction: rtl; */
+    color: #000000;
+    max-width: 350px;
+    min-width: 350px;
+    overflow-y: auto;
+}
+
+.body-content-large {
+    padding: 40px 20px;
+    width: 40%;
+    max-width: 90%;
+    right: 30%;
+    box-shadow: 1px 1px 2px white, 0 0 5px #ff4081, 0 0 5px white;
+    text-align: center;
+}
+
+.btn-primary {
+    max-width: 200px;
+    margin: 0px auto;
+    background-color: #ff0080;
+    border-color: #ff0080;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #ff0080;
+    border-color: #b9005d;
+}
+
+.btn-outline-primary:hover {
+    color: #fff;
+    background-color: #ff0080;
+    border-color: #b9005d;
+}
+
+.btn-outline-primary {
+    color: #ff0080;
+    border-color: #ff0080;
+}
+
+.form-group {
+    margin-bottom: 0.5rem;
+}
+
+.card-header {
+    padding: .4rem 1rem;
+}
+
+.mat-h4,
+.mat-subheading-1,
+.mat-typography h4 {
+    margin: 0 0 5px;
+}
+
+.form-check-inline {
+    margin-bottom: 0px;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active,
+.btn-primary:not(:disabled):not(.disabled):active,
+.show>.btn-primary.dropdown-toggle {
+    color: #fff;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active:focus,
+.btn-primary:not(:disabled):not(.disabled):active:focus,
+.show>.btn-primary.dropdown-toggle:focus {
+    box-shadow: none;
+}
