@@ -232,6 +232,25 @@ button:focus {
     cursor: pointer;
 }
 
+.add-icon-modal {
+    margin-top: -10px;
+    color: #0095b7;
+    font-size: 30px;
+    cursor: pointer;
+    margin-right: 10px;
+    text-align: right;
+    float: right;
+    margin-bottom: 10px;
+}
+
+.sec-data {
+    max-height: 500px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-top: 40px;
+    min-height: 300px;
+}
+
 .mat-error {
     display: block;
     font-size: 12px;
@@ -332,7 +351,7 @@ table .mat-icon {
     padding: 20px !important;
     max-width: 900px;
     min-height: 200px;
-    min-width: 300px;
+    min-width: 500px;
 }
 
 .form-wrapper-modal-w h1,
@@ -357,6 +376,13 @@ table .mat-icon {
     min-width: 350px;
 }
 
+.form-wrapper-modal .mat-form-field {
+    text-align: left;
+    display: block;
+    max-width: 250px;
+    margin: auto;
+}
+
 .form-wrapper-modal .mat-form-field-appearance-fill .mat-form-field-flex,
 .mat-form-field-appearance-fill .mat-form-field-flex {
     background-color: white;
@@ -364,4 +390,30 @@ table .mat-icon {
 
 a:not([href]):not([tabindex]) {
     color: #ff5340;
+}
+
+.meal-error {
+    animation: pulse 1s infinite;
+}
+
+.meal-error mat-icon {
+    animation: pulse2 1s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        background-color: white;
+    }
+    100% {
+        background-color: #ff5340;
+    }
+}
+
+@keyframes pulse2 {
+    0% {
+        color: #ff5340;
+    }
+    100% {
+        color: white;
+    }
 }

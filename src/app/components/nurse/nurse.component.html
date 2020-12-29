@@ -7,6 +7,7 @@
           >
         </header>
         <form [formGroup]="form">
+          <mat-icon (click)="clear();" *ngIf="form.get('baby').value!=''" style="cursor: pointer;vertical-align: middle;">close</mat-icon>
           <mat-form-field appearance="fill">
             <mat-label> תינוק</mat-label>
             <input
@@ -23,16 +24,33 @@
                 {{ baby.Name }} {{ baby.BabyId }}
               </mat-option>
             </mat-autocomplete>
+            <mat-error style="text-align: right;" *ngIf="form.get('baby').errors?.required"> חובה לבחור תינוק .</mat-error>
+
           </mat-form-field>
-        </form>
+    
         <article class="card-body">
           <div class="row">
-            <mat-icon matTooltip="ארוחות">restaurant</mat-icon>
-            <mat-icon matTooltip="טיפולים">healing </mat-icon>
+            <button mat-icon-button [disabled]="!form.valid" color="transparent" 
+            [ngClass]="showError()">
+              <mat-icon matTooltip="ארוחות" >restaurant</mat-icon>
+           </button>
+           <button mat-icon-button [disabled]="!form.valid" color="transparent">
+            <mat-icon matTooltip="טיפולים">healing</mat-icon>
+         </button>
+
+            <!-- <mat-icon [disabled]="!form.valid" matTooltip="ארוחות">restaurant</mat-icon>
+            <mat-icon [disabled]="!form.valid" matTooltip="טיפולים">healing </mat-icon> -->
           </div>
           <div class="row">
-            <mat-icon matTooltip="רחצה">opacity</mat-icon>
+            <button mat-icon-button [disabled]="!form.valid" color="transparent" (click)="openBathModal();">
+              <mat-icon matTooltip="רחצה" >opacity</mat-icon>
+           </button>
+           <button mat-icon-button [disabled]="!form.valid" color="transparent">
             <mat-icon matTooltip="החתלה">face</mat-icon>
+         </button>
+
+            <!-- <mat-icon [disabled]="!form.valid" matTooltip="רחצה" (click)="openBathModal();">opacity</mat-icon>
+            <mat-icon [disabled]="!form.valid" matTooltip="החתלה">face</mat-icon> -->
           </div>
           <!-- face opacity restaurant  child_care child_friendly -->
           <!-- <div class=" container">
@@ -62,6 +80,7 @@
                         </div>
                     </div> -->
         </article>
+      </form>
         <!--card-body end .// -->
       </div>
       <!-- card.// -->

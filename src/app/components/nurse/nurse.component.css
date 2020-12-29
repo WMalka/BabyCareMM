@@ -90,6 +90,8 @@ button.btn {
 	top:1px;
 } */
 
+
+/* 
 mat-icon {
     color: #ff5340;
     font-size: 100px;
@@ -100,9 +102,34 @@ mat-icon {
     border-radius: 50%;
     padding: 20px;
     margin: 10px;
+} */
+
+button mat-icon {
+    color: #ff5340;
+    font-size: 100px;
+    height: 100px;
+    width: 100px;
+    padding: 38px 0px
+}
+
+button {
+    height: 140px;
+    width: 140px;
+    cursor: pointer;
+    border: 1px solid #ff5340;
+    border-radius: 50%;
+    margin: 10px;
 }
 
 .row {
     text-align: center;
     justify-content: center;
+}
+
+button[disabled] {
+    border-color: rgba(0, 0, 0, .26);
+}
+
+button[disabled] mat-icon {
+    color: rgba(0, 0, 0, .26);
 }
