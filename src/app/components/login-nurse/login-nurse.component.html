@@ -1,0 +1,25 @@
+<div class="jumbotron">
+    <div class="container">
+
+        <h1>כניסת אחיות</h1>
+        <form [formGroup]="f" (ngSubmit)="login();">
+            <div class="form-group">
+                <label> תז  </label>
+                <input type="number" formControlName="tz" class="form-control" minlength="6" />
+                <div *ngIf="f.get('tz').errors?.required">חובה להזין ת.ז</div>
+                <div *ngIf="f.get('tz').errors?.minlength">ת.ז מכיל מינימום 6 תווים</div>
+
+            </div>
+            <div class="form-group">
+                <label>סיסמא</label>
+                <input type="password" formControlName="password" class="form-control" required minlength="4" />
+                <div *ngIf="f.get('password').errors?.required">חובה להזין סיסמא</div>
+                <div *ngIf="f.get('password').errors?.minlength">סיסמא חייבת להכיל מינימום 4 תווים</div>
+
+            </div>
+
+            <br>
+            <button type="submit" [disabled]="!f.valid" class="btn btn-primary">התחברי</button>
+        </form>
+    </div>
+</div>

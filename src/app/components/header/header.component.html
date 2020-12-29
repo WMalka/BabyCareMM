@@ -2,21 +2,18 @@
     <a mat-tab-link>
         <button mat-button [matMenuTriggerFor]="menu" routerLinkActive #rla3="routerLinkActive" [active]="rla3.isActive">כניסה</button>
         <mat-menu #menu="matMenu">
-            <button mat-menu-item routerLink="/login">אמא</button>
+            <button mat-menu-item routerLink="/mother">אמא</button>
             <button mat-menu-item routerLink="/nurse">אחות</button>
             <button mat-menu-item routerLink="/secretery">מזכירה</button>
         </mat-menu>
     </a>
-    <a mat-tab-link routerLink="/babies" routerLinkActive #rla2="routerLinkActive" [active]="rla2.isActive"> תינוקות  </a>
-    <a mat-tab-link routerLink="/home" routerLinkActive #rla1="routerLinkActive" [active]="rla1.isActive"> ראשי  </a>
+    <a mat-tab-link class="home" routerLink="/home"> </a>
 
+    <span class="div-name" *ngIf="user; else guest">שלום {{user.Name}}
+        <mat-icon class="logout" (click)="logout()">login</mat-icon>
+      </span>
+    <ng-template #guest>
+        <span class="div-name">שלום אורחת</span>
+
+    </ng-template>
 </nav>
-
-<!-- <mat-tab-group animationDuration="0ms">
-    <mat-tab label="blabla1">
-        ssssssss
-    </mat-tab>
-    <mat-tab label="blabla2">
-        ssssssssss
-    </mat-tab>
-</mat-tab-group> -->

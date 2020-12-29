@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Users } from 'src/app/models/user.model';
+import { UsersService } from 'src/app/services/users.service';
 //import {  NgbModal, NgbModalOptions, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';//111
 import { NgbdModalBasic } from '../modalBasic/modal-basic';
 
@@ -16,8 +19,10 @@ import { NgbdModalBasic } from '../modalBasic/modal-basic';
  export class SecreteryComponent  {
   closeResult: string;
  // modalOptions:NgbModalOptions;
-
+ user:Users;
   constructor(
+    private route :Router,
+    private userService:UsersService
     //private modalService: NgbModal
   ){
     // this.modalOptions = {
@@ -25,7 +30,12 @@ import { NgbdModalBasic } from '../modalBasic/modal-basic';
     //   backdropClass:'customBackdrop'
     // }
   }
-  
+  logout() {
+    localStorage.clear();
+    this.user = null;
+    this.route.navigateByUrl("/login");
+    this.userService.userChanged.next();
+  }
   // open(content) {
   //   this.modalService.open(content, this.modalOptions).result.then((result) => {
   //     this.closeResult = `Closed with: ${result}`;

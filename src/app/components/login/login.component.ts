@@ -1,69 +1,53 @@
-import { Component, OnInit } from '@angular/core';
-import { Users } from '../../../app/models/user.model';
-import { UsersService } from 'src/app/services/users.service';
-
-// import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';//dialod
-
-
-
-
-
+import { Component, OnInit } from "@angular/core";
+import { Users } from "../../../app/models/user.model";
+import { UsersService } from "src/app/services/users.service";
+import { FormBuilder, MinLengthValidator, Validators } from "@angular/forms";
+import Swal from "sweetalert2";
+import { Route } from "@angular/compiler/src/core";
+import { Router } from "@angular/router";
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: "app-login",
+  templateUrl: "./login.component.html",
+  styleUrls: ["./login.component.css"],
 })
 export class LoginComponent implements OnInit {
+  user: Users;
+  constructor(
+    private usersService: UsersService,
+    private fb: FormBuilder,
+    private router: Router
+  ) {}
+  f = this.fb.group({
+    tz: this.fb.control("", Validators.required),
+    password: this.fb.control("", [Validators.required]),
+  });
+  ngOnInit() {}
 
-
-  model: any = {};//111
-
-  users: Users[];
-  title: string;
-
-  constructor(private usersService: UsersService) { }
-
-  ngOnInit() {
-    this.usersService.getUsers().subscribe((res: Users[]) => {
-      this.users = res;
-      console.log(res);
-    }, err => {
-      console.log(err)
-    });
-  }
-
-  onSubmit() {//111
-    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.model));//111
-  }//111
-
-}
-
-
-//dialog
-
-
-export class NgbdModalBasic {
-  closeResult: string;
-  // private modalService: NgbModal
-  constructor() {}
-
-  open(content) {
-    // this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-    //   this.closeResult = `Closed with: ${result}`;
-    // }, (reason) => {
-    //   this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-    // });
-  }
-
-  private getDismissReason(reason: any): string {
-    // if (reason === ModalDismissReasons.ESC) {
-    //   return 'by pressing ESC';
-    // } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-    //   return 'by clicking on a backdrop';
-    // } else {
-    //   return  `with: ${reason}`;
-    // }
-    return '';
+  login() {
+    this.usersService.login(this.f.value.tz, this.f.value.password).subscribe(
+      (user) => {
+        if (!user) {
+          Swal.fire(
+            "Ooooops....",
+            "ת.ז או סיסמא לא תקינים",
+            "error"
+          ).then(() => {});
+        } else {
+          Swal.fire("", "הכניסה בוצעה בהצלחה", "success").then(() => {
+            localStorage.setItem("user", JSON.stringify(user));
+            this.user = user;
+            this.usersService.userChanged.next("user");
+            if (this.user.IsMother) {
+              this.router.navigateByUrl("/mother");
+            } else if (this.user.IsNurse) {
+              this.router.navigateByUrl("/nurse");
+            } else {
+              this.router.navigateByUrl("/secretery");
+            }
+          });
+        }
+      },
+      (err) => {}
+    );
   }
 }
-

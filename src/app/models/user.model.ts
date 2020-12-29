@@ -1,11 +1,6 @@
 
-// export class User {
-//     public Tz: string ;
-//     public FName:  string;
-//     public LName:  string;
+import { Baby } from "./baby.model";
 
-//     public  Mother: Mother;
-// }
 
 export class Users{
     public Id: number;
@@ -20,6 +15,9 @@ export class Users{
     public IsSecretery: boolean;
     public Password: string;
     public Status: string;
+
+
+    public Babies: Baby;
 
 }
     

@@ -1,4 +1,4 @@
-/* @import '@angular/material/prebuilt-themes/indigo-pink.css'; */
+/* @import '~@angular/material/prebuilt-themes/pink-bluegrey.css'; */
 
 html,
 body {
@@ -15,12 +15,29 @@ body * {
     font-family: 'M PLUS Rounded 1c'!important;
 }
 
+body .mat-icon {
+    font-family: 'Material Icons'!important;
+}
+
 body {
     margin: 0;
     font-style: normal;
     font-weight: 400;
     font-display: swap;
     /* font-family: Roboto, "Helvetica Neue", sans-serif; */
+}
+
+h1,
+h2,
+h3,
+h4 {
+    color: #0095b7;
+    font-weight: bold;
+}
+
+.mat-progress-spinner.mat-accent circle,
+.mat-spinner.mat-accent circle {
+    stroke: #0095b7;
 }
 
 .bg {
@@ -40,7 +57,7 @@ body {
 
 .mat-tab-group.mat-primary .mat-ink-bar,
 .mat-tab-nav-bar.mat-primary .mat-ink-bar {
-    background-color: #ff0080;
+    background-color: #ff5340;
 }
 
 a:hover {
@@ -74,36 +91,38 @@ button:focus {
     width: 40%;
     max-width: 90%;
     right: 30%;
-    box-shadow: 1px 1px 2px white, 0 0 5px #ff4081, 0 0 5px white;
+    box-shadow: 1px 1px 2px white, 0 0 5px #ff5340, 0 0 5px white;
     text-align: center;
 }
 
 .btn-primary {
     max-width: 200px;
     margin: 0px auto;
-    background-color: #ff0080;
-    border-color: #ff0080;
+    background-color: #ff5340;
+    border-color: #ff5340;
 }
 
 .btn-primary:hover {
     color: #fff;
-    background-color: #ff0080;
+    background-color: #ff5340;
     border-color: #b9005d;
 }
 
 .btn-outline-primary:hover {
     color: #fff;
-    background-color: #ff0080;
+    background-color: #ff5340;
     border-color: #b9005d;
 }
 
 .btn-outline-primary {
-    color: #ff0080;
-    border-color: #ff0080;
+    color: #ff5340;
+    border-color: #ff5340;
 }
 
 .form-group {
     margin-bottom: 0.5rem;
+    text-align: right;
+    direction: rtl;
 }
 
 .card-header {
@@ -132,4 +151,217 @@ button:focus {
 .btn-primary:not(:disabled):not(.disabled):active:focus,
 .show>.btn-primary.dropdown-toggle:focus {
     box-shadow: none;
+}
+
+.jumbotron {
+    text-align: center;
+    direction: rtl;
+    max-width: 400px;
+    margin: auto;
+    position: relative;
+    background-color: rgb(233 236 239 / 0.4);
+    padding-bottom: 40px;
+}
+
+.jumbotron .form-group {
+    text-align: right;
+}
+
+.btn-primary {
+    border-radius: 20px;
+    line-height: 1;
+}
+
+.btn-primary.disabled,
+.btn-primary:disabled {
+    color: #fff;
+    background-color: #898989;
+    border-color: #545454;
+}
+
+.gender {
+    height: 32px;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    padding-top: 4px;
+    direction: rtl;
+    text-align: right;
+}
+
+.remove-icon {
+    float: left;
+    margin-top: -26px;
+    color: #0095b7;
+    cursor: pointer;
+}
+
+.form-group label {
+    margin-bottom: .3rem;
+}
+
+.gender .mat-radio-container {
+    margin-left: 3px;
+    margin-right: 2px;
+}
+
+.sec-card .card-body {
+    padding-bottom: 0rem;
+}
+
+.card-body {
+    direction: rtl;
+    text-align: right;
+}
+
+.add-baby-mother {
+    max-height: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.add-icon {
+    float: right;
+    margin-top: -30px;
+    margin-right: 112px;
+    color: #0095b7;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.mat-error {
+    display: block;
+    font-size: 12px;
+}
+
+.form-control {
+    height: calc(1.2em + .65rem + 2px);
+    padding: .275rem .55rem;
+}
+
+table.mat-table {
+    width: 100%;
+    text-align: right;
+    direction: rtl;
+    background-color: white;
+}
+
+table.mat-table th.mat-header-cell,
+table.mat-table td.mat-cell,
+td.mat-footer-cell {
+    border-bottom: 1px solid #ccc;
+    text-align: center
+}
+
+table.mat-table th.mat-header-cell {
+    color: #1c799e;
+    font-weight: bold;
+    font-size: 0.85rem;
+    position: relative;
+    border: none;
+    text-align: center;
+    background-color: #eaeaea;
+}
+
+table.mat-table tr.mat-header-row {
+    height: 40px;
+}
+
+table.mat-table th.mat-header-cell::after {
+    content: "";
+    width: 90%;
+    height: 1.5px;
+    text-align: center;
+    position: absolute;
+    bottom: 12px;
+    right: 0;
+}
+
+table.mat-table th.mat-header-cell:first-of-type,
+table.mat-table td.mat-cell:first-of-type,
+table.mat-table td.mat-footer-cell:first-of-type {
+    padding-right: 5px;
+}
+
+table.mat-table th.mat-header-cell:last-of-type,
+table.mat-table td.mat-cell:last-of-type,
+table.mat-table td.mat-footer-cell:last-of-type {
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+th.mat-header-cell,
+td.mat-cell,
+td.mat-footer-cell {
+    color: #191919;
+}
+
+table .mat-icon {
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.mat-form-field-infix {
+    text-align: right;
+    direction: rtl;
+}
+
+.swal2-container.swal2-center {
+    z-index: 11111111;
+}
+
+.swal2-styled.swal2-confirm {
+    background-color: #f44336;
+}
+
+.swal2-actions {
+    flex-direction: row-reverse!important;
+}
+
+.swal2-content {
+    direction: rtl!important;
+}
+
+.mat-dialog-container {
+    background: white;
+    direction: rtl;
+    text-align: right;
+    padding: 20px !important;
+    max-width: 900px;
+    min-height: 200px;
+    min-width: 300px;
+}
+
+.form-wrapper-modal-w h1,
+.form-wrapper-modal-t h1,
+.form-wrapper-modal h1 {
+    background-color: #565656;
+    color: white;
+    line-height: 60px;
+}
+
+.form-wrapper-modal {
+    text-align: center;
+    margin: 0px auto;
+    background-color: #fff;
+    direction: ltr;
+    color: #1c799e !important;
+    flex-grow: 1;
+    position: relative;
+    font-size: 16px;
+    line-height: 28px;
+    max-width: 500px;
+    min-width: 350px;
+}
+
+.form-wrapper-modal .mat-form-field-appearance-fill .mat-form-field-flex,
+.mat-form-field-appearance-fill .mat-form-field-flex {
+    background-color: white;
+}
+
+a:not([href]):not([tabindex]) {
+    color: #ff5340;
 }

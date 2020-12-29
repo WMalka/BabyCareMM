@@ -1,4 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
+import { Baby } from 'src/app/models/baby.model';
+import { Users } from 'src/app/models/user.model';
+import { NurseService } from 'src/app/services/nurse.service';
+import { UsersService } from 'src/app/services/users.service';
 
 
 @Component({
@@ -7,61 +15,44 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nurse.component.css']
 })
 export class NurseComponent implements OnInit {
+  user:Users;
+  babiesArr: Baby[] = [];
+  filteredBabies: Observable<Baby[]>;
+  form = this.fb.group({
+    baby: this.fb.control("", Validators.required),
+  });
+  constructor(private route:Router,private userService: UsersService,private nurseService:NurseService,
+    private fb: FormBuilder ) { }
+  logout() {
+    localStorage.clear();
+    this.user = null;
+    this.route.navigateByUrl("/login");
+    this.userService.userChanged.next();
+  }
 
-  constructor() { }
-  name="nkfv"
-  m_meal="05"
-  h_meal="12"
-  note="שם התינוק המטופל: בן בתיה"
+  private _filterBaby(name: string): Baby[] {
+    const filterValue = name.toLowerCase();
 
-
-
-
-
+    return this.babiesArr.filter(
+      (option) => option.Name.toLowerCase().indexOf(filterValue) === 0
+    )
+  }
+  displayFn(b: Baby): string {
   
-
-
   
+    return b && b.Name && b.BabyId? (b.Name+" "+ b.BabyId) : '';
+     
+  }
   ngOnInit() {
-    
-    // angular.module('dialogDemo2', ['ngMaterial'])
-
-    // .controller('AppCtrl', function($scope, $mdDialog) {
-    //   $scope.openFromLeft = function() {
-    //     $mdDialog.show(
-    //       $mdDialog.alert()
-    //         .clickOutsideToClose(true)
-    //         .title('Opening from the left')
-    //         .textContent('Closing to the right!')
-    //         .ariaLabel('Left to right demo')
-    //         .ok('Nice!')
-    //         // You can specify either sting with query selector
-    //         .openFrom('#left')
-    //         // or an element
-    //         .closeTo(angular.element(document.querySelector('#right')))
-    //     );
-    //   };
-    
-    //   $scope.openOffscreen = function() {
-    //     $mdDialog.show(
-    //       $mdDialog.alert()
-    //         .clickOutsideToClose(true)
-    //         .title('Opening from offscreen')
-    //         .textContent('Closing to offscreen')
-    //         .ariaLabel('Offscreen Demo')
-    //         .ok('Amazing!')
-    //         // Or you can specify the rect to do the transition from
-    //         .openFrom({
-    //           top: -50,
-    //           width: 30,
-    //           height: 80
-    //         })
-    //         .closeTo({
-    //           left: 1500
-    //         })
-    //     );
-    //   };
-    // });
+    this.nurseService.getAllBabies().subscribe(ress => {
+      this.babiesArr = ress;
+      const us = this.form.get("baby");
+      this.filteredBabies = us.valueChanges.pipe(
+        startWith(''),
+        map((value) => (typeof value === 'string' ? value : (value?.Name + " "+ value?.BabyId))),
+        map((name) => (name ? this._filterBaby(name) : this.babiesArr.slice()))
+      );
+    })
   }
 
 }

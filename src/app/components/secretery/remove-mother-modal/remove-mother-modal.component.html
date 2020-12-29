@@ -1,0 +1,14 @@
+<form class="form-wrapper-modal" [formGroup]="form" #formM (ngSubmit)="sendMother()">
+    <h1>שחרור יולדת</h1>
+    <div class="div-wrapper" *ngIf="mother">
+        <h4><strong> היולדת:</strong>&nbsp; {{mother.Name}}</h4>
+        <h4><strong>ת. זהות:</strong>&nbsp;{{ mother.UserId}}</h4>
+        <h4><strong> תינוק/ות:</strong>&nbsp;<span *ngFor="let baby of mother.Babies">&nbsp;*{{baby.Name}}</span></h4>
+    </div>
+    <mat-form-field appearance="fill">
+        <mat-label>הערות לשחרור</mat-label>
+        <textarea autocomplete="autocomplete" rows="4" type="text" matInput required formControlName="note"></textarea>
+    </mat-form-field>
+
+    <button style="display: block;" class="btn btn-primary" type="submit" [disabled]="!form.valid">אישור</button>
+</form>
