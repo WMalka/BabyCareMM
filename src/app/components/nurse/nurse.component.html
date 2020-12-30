@@ -30,7 +30,7 @@
     
         <article class="card-body">
           <div class="row">
-            <button mat-icon-button [disabled]="!form.valid" color="transparent" 
+            <button mat-icon-button [disabled]="!form.valid" color="transparent"  (click)="openMealsModal();"
             [ngClass]="showError()">
               <mat-icon matTooltip="ארוחות" >restaurant</mat-icon>
            </button>
@@ -89,3 +89,7 @@
   </div>
   <!-- row.//-->
 </div>
+
+<div *ngIf="babiesNoMealsArr.length>0" class="tcontainer"><div class="ticker-wrap"><div class="ticker-move">
+  <div *ngFor="let baby of babiesNoMealsArr" class="ticker-item" (click)="openModalAddMeal(baby.BabyId);">{{baby.Name}} - {{baby.BabyId}} </div>
+</div></div></div>

@@ -19,7 +19,7 @@ export class BathModalComponent implements OnInit {
   ) {}
   bathId =0;
   form = this.fb.group({
-    DateTime: this.fb.control(new Date(), [Validators.required]),
+    DateTime:  this.fb.control(new Date().toISOString().substring(0, 16), [Validators.required]),
     Note: this.fb.control('', [Validators.required]),
     Id:this.fb.control(''),
     Baby_Id:this.fb.control(''),

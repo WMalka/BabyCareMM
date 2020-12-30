@@ -19,7 +19,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './components/header/header.component';
 
 
-import {MatTableDataSource, MatTableModule, MatMenuModule, MatTabsModule, MatFormFieldModule, MatButtonModule, MatRippleModule, MatIconModule, MatRadioButton, MatRadioModule, MatProgressSpinnerModule, MAT_DIALOG_DATA, MatDialogRef, MAT_DATE_LOCALE ,   MatDialogModule, MatInputModule, MatTooltipModule, MatAutocompleteModule} from '@angular/material';
+import {MatTableDataSource, MatTableModule, MatMenuModule, MatTabsModule, MatFormFieldModule, MatButtonModule, MatRippleModule, MatIconModule, MatRadioButton, MatRadioModule, MatProgressSpinnerModule, MAT_DIALOG_DATA, MatDialogRef, MAT_DATE_LOCALE ,   MatDialogModule, MatInputModule, MatTooltipModule, MatAutocompleteModule, MatSelectModule} from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginNurseComponent } from './components/login-nurse/login-nurse.component';
 import { LoginSecreteryComponent } from './components/login-secretery/login-secretery.component';
@@ -100,7 +100,8 @@ import { MealsModalComponent } from './components/baby/meals-modal/meals-modal.c
     MatFormFieldModule,
     MatInputModule,
     MatTooltipModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatSelectModule
 
   ],
   // entryComponents:[

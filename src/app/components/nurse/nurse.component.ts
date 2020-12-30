@@ -13,6 +13,8 @@ import { NurseService } from "src/app/services/nurse.service";
 import { UsersService } from "src/app/services/users.service";
 import { BathModalComponent } from "../baby/bath-modal/bath-modal.component";
 import { BathComponent } from "../baby/bath/bath.component";
+import { MealsModalComponent } from "../baby/meals-modal/meals-modal.component";
+import { MealsComponent } from "../baby/meals/meals.component";
 
 @Component({
   selector: "app-nurse",
@@ -22,6 +24,7 @@ import { BathComponent } from "../baby/bath/bath.component";
 export class NurseComponent implements OnInit {
   user: Users;
   babiesArr: Baby[] = [];
+  babiesNoMealsArr: Baby[] = [];
   filteredBabies: Observable<Baby[]>;
   form = this.fb.group({
     baby: this.fb.control("", Validators.required),
@@ -53,18 +56,26 @@ export class NurseComponent implements OnInit {
   }
   openBathModal() {
     const dialogRef = this.dialog.open(BathComponent, {
-      data: { babyId: this.form.value.baby.Id },
+      data: { babyId: this.form.value.baby.BabyId },
     });
     dialogRef.afterClosed().subscribe((result) => {
       console.log(`Dialog result: ${result}`);
     });
   }
+  openMealsModal() {
+    const dialogRef = this.dialog.open(MealsComponent, {
+      data: { babyId: this.form.value.baby.BabyId },
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      this.getAllBabies();
+    });
+  }
+
   showError() {
     if (!this.form.valid || !this.form.value.baby.Meals) {
       return "";
     }
-    if (this.form.value.baby.Meals.length === 0)
-      return "meal-error";
+    if (this.form.value.baby.Meals.length === 0) return "meal-error";
 
     var now = new Date();
     now.setHours(now.getHours() - 3);
@@ -75,13 +86,25 @@ export class NurseComponent implements OnInit {
   }
   clear() {
     this.form.patchValue({
-      baby: '',
+      baby: "",
     });
   }
 
   ngOnInit() {
+    this.getAllBabies();
+  }
+
+  getAllBabies() {
     this.nurseService.getAllBabies().subscribe((ress) => {
       this.babiesArr = ress;
+      //    this.clear();
+      const baby = this.form.value.baby;
+      if (baby) {
+        this.form.patchValue({
+          baby: this.babiesArr.filter((x) => x.Id === baby.Id)[0],
+        });
+      }
+    
       const us = this.form.get("baby");
       this.filteredBabies = us.valueChanges.pipe(
         startWith(""),
@@ -90,6 +113,20 @@ export class NurseComponent implements OnInit {
         ),
         map((name) => (name ? this._filterBaby(name) : this.babiesArr.slice()))
       );
+      this.getBabiesWithoutMeals();
+    });
+  }
+  getBabiesWithoutMeals() {
+    this.nurseService.GetBabiesWitNoMeal().subscribe((ress) => {
+      this.babiesNoMealsArr = ress;
+    });
+  }
+  openModalAddMeal(babyId: number) {
+    const dialogRef = this.dialog.open(MealsModalComponent, {
+      data: { babyId: babyId },
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      this.getAllBabies();
     });
   }
 }

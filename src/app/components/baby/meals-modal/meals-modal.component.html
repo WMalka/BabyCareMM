@@ -1,1 +1,29 @@
-<p>meals-modal works!</p>
+<form class="form-wrapper-modal" [formGroup]="form" (ngSubmit)="saveMeal();">
+    <h1 *ngIf="!mealId; else newMeal">הוספת ארוחה</h1>
+    <ng-template #newMeal>
+        <h1>עדכון ארוחה</h1>
+    </ng-template>
+    <mat-form-field appearance="fill">
+        <mat-label> תאריך ושעה</mat-label>
+        <input autocomplete="autocomplete" formControlName="DateTime" type="datetime-local" matInput placeholder="mealName" required/>
+        <mat-error *ngIf="form.get('DateTime').errors?.required"> חובה להזין תאריך.</mat-error>
+
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label> סוג הארוחה </mat-label>
+        <mat-select formControlName="Meals_Type_Id" required>
+            <mat-option *ngFor="let mo of mealsTypes" [value]="mo.Id">
+                {{mo.Type}}
+            </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('Meals_Type_Id').errors?.required "> חובה לבחור סוג ארוחה.</mat-error>
+
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label> פרטים </mat-label>
+        <textarea rows="3" autocomplete="autocomplete" formControlName="Note" matInput required></textarea>
+        <mat-error *ngIf="form.get( 'Note').errors?.required "> חובה להזין פרטים.</mat-error>
+
+    </mat-form-field>
+    <button class=" btn btn-primary mt-1 btn-block" style="max-width: 100px;" type="submit " [disabled]="!form.valid ">שמור</button>
+</form>
