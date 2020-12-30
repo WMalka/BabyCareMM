@@ -1,6 +1,6 @@
 <div class="form-wrapper-modal">
     <h1>רחצת תינוק</h1>
-    <mat-icon class="add-icon-modal" (click)="openModal();">add_circle_outline</mat-icon>
+    <mat-icon *ngIf="!motherId" class="add-icon-modal" (click)="openModal();">add_circle_outline</mat-icon>
     <section class="sec-data" *ngIf="baths && baths.length>0; else noContent">
 
 

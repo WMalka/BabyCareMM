@@ -13,8 +13,10 @@ import { NurseService } from "src/app/services/nurse.service";
 import { UsersService } from "src/app/services/users.service";
 import { BathModalComponent } from "../baby/bath-modal/bath-modal.component";
 import { BathComponent } from "../baby/bath/bath.component";
+import { DiaperChangeComponent } from "../baby/diaper-change/diaper-change.component";
 import { MealsModalComponent } from "../baby/meals-modal/meals-modal.component";
 import { MealsComponent } from "../baby/meals/meals.component";
+import { TreatmentsComponent } from "../baby/treatments/treatments.component";
 
 @Component({
   selector: "app-nurse",
@@ -39,7 +41,7 @@ export class NurseComponent implements OnInit {
   logout() {
     localStorage.clear();
     this.user = null;
-    this.route.navigateByUrl("/login");
+    this.route.navigateByUrl("/home");
     this.userService.userChanged.next();
   }
 
@@ -70,6 +72,23 @@ export class NurseComponent implements OnInit {
       this.getAllBabies();
     });
   }
+  openDiaperChangesModal(){
+
+    const dialogRef = this.dialog.open(DiaperChangeComponent, {
+      data: { babyId: this.form.value.baby.BabyId },
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+    });
+  }
+  openTreatmentsModal(){
+
+    const dialogRef = this.dialog.open(TreatmentsComponent, {
+      data: { babyId: this.form.value.baby.BabyId },
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+    });
+  }
+
 
   showError() {
     if (!this.form.valid || !this.form.value.baby.Meals) {

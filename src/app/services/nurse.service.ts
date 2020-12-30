@@ -24,7 +24,9 @@ export class NurseService {
   GetBabiesWitNoMeal(): Observable<Baby[]> {
     return this.http.get<Baby[]>(this.api + "babies/GetBabiesWitNoMeal");
   }
-
+  getBabiesByMotherId(motherId:string): Observable<Baby[]> {
+    return this.http.get<Baby[]>(this.api + "babies/getBabiesByMotherId/"+motherId);
+  }
   
   //Meals
   GetMealsByBabyId(babyId: string): Observable<Meals[]> {

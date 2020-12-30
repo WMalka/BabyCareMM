@@ -11,7 +11,7 @@ import { BathModalComponent } from '../bath-modal/bath-modal.component';
   styleUrls: ['./bath.component.css']
 })
 export class BathComponent implements OnInit {
-
+  motherId: number;
   babyId:string;
   sourceBaths: Baths[] = [];
   baths: Baths[];
@@ -37,6 +37,15 @@ export class BathComponent implements OnInit {
     if (this.data && this.data.babyId) {
       this.babyId = this.data.babyId;
       this.getBaths();
+    }
+    if(this.data && this.data.motherId)
+    {  this.motherId = this.data.motherId;
+      this.displayedColumns = [
+        'DateTime',
+        'Time',
+        'Note',
+      ];
+
     }
   }
 

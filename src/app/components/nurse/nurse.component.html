@@ -34,51 +34,19 @@
             [ngClass]="showError()">
               <mat-icon matTooltip="ארוחות" >restaurant</mat-icon>
            </button>
-           <button mat-icon-button [disabled]="!form.valid" color="transparent">
-            <mat-icon matTooltip="טיפולים">healing</mat-icon>
+           <button mat-icon-button [disabled]="!form.valid" color="transparent" (click)="openTreatmentsModal();">
+            <mat-icon matTooltip="טיפול">healing</mat-icon>
          </button>
-
-            <!-- <mat-icon [disabled]="!form.valid" matTooltip="ארוחות">restaurant</mat-icon>
-            <mat-icon [disabled]="!form.valid" matTooltip="טיפולים">healing </mat-icon> -->
           </div>
           <div class="row">
             <button mat-icon-button [disabled]="!form.valid" color="transparent" (click)="openBathModal();">
               <mat-icon matTooltip="רחצה" >opacity</mat-icon>
            </button>
-           <button mat-icon-button [disabled]="!form.valid" color="transparent">
+           <button mat-icon-button [disabled]="!form.valid" color="transparent" (click)="openDiaperChangesModal();">
             <mat-icon matTooltip="החתלה">face</mat-icon>
          </button>
 
-            <!-- <mat-icon [disabled]="!form.valid" matTooltip="רחצה" (click)="openBathModal();">opacity</mat-icon>
-            <mat-icon [disabled]="!form.valid" matTooltip="החתלה">face</mat-icon> -->
-          </div>
-          <!-- face opacity restaurant  child_care child_friendly -->
-          <!-- <div class=" container">
-
-                        <p class="btn btn-warning btn-block btn-large">{{note}}</p>
-
-                        <div class="btn-group  form-group btn-block">
-                            <div class="row">
-
-                                <button href="#" class="btn btn-primary btn-diapered">
-                                <button href="#" class="btn btn-primary btn-care">
-                            </div>
-                            <div class="row">
-                                <button href="#" class="btn btn-primary btn-meal">
-                                <button href="#" class="btn btn-primary btn-bath ">
-
-                            </div>
-                        </div>
-                        <div class="btn-group  form-group btn-block">
-                            <div ngbDropdown class="d-inline-block">
-                                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                                    <button ngbDropdownItem>בדיקת צהבת
-                                    <button ngbDropdownItem>בדיקת חום
-                                    <button ngbDropdownItem>ביקור רופא
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
+           </div>
         </article>
       </form>
         <!--card-body end .// -->
@@ -91,5 +59,5 @@
 </div>
 
 <div *ngIf="babiesNoMealsArr.length>0" class="tcontainer"><div class="ticker-wrap"><div class="ticker-move">
-  <div *ngFor="let baby of babiesNoMealsArr" class="ticker-item" (click)="openModalAddMeal(baby.BabyId);">{{baby.Name}} - {{baby.BabyId}} </div>
+  <div *ngFor="let baby of babiesNoMealsArr" class="ticker-item" (click)="openModalAddMeal(baby.BabyId);"><mat-icon >sentiment_very_dissatisfied</mat-icon>  {{baby.Name}} - {{baby.BabyId}} </div>
 </div></div></div>

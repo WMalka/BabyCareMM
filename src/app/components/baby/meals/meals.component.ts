@@ -40,6 +40,7 @@ export class MealsComponent implements OnInit {
       this.babyId = this.data.babyId;
       this.getMeals();
     }
+   
   }
 
   getMeals(){

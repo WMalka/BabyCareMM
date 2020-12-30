@@ -1,1 +1,29 @@
-<p>treatments-modal works!</p>
+<form class="form-wrapper-modal" [formGroup]="form" (ngSubmit)="saveTreatment();">
+    <h1 *ngIf="!treatmentId; else newTreatment">הוספת טיפול</h1>
+    <ng-template #newTreatment>
+        <h1>עדכון טיפול</h1>
+    </ng-template>
+    <mat-form-field appearance="fill">
+        <mat-label> תאריך ושעה</mat-label>
+        <input autocomplete="autocomplete" formControlName="Date_Time" type="datetime-local" matInput placeholder="treatmentName" required/>
+        <mat-error *ngIf="form.get('Date_Time').errors?.required"> חובה להזין תאריך.</mat-error>
+
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label> סוג טיפול </mat-label>
+        <mat-select formControlName="Treatment_Type_Id" required>
+            <mat-option *ngFor="let mo of treatmentsTypes" [value]="mo.Id">
+                {{mo.Treatment}}
+            </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('Treatment_Type_Id').errors?.required "> חובה לבחור סוג טיפול</mat-error>
+
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label> פרטים </mat-label>
+        <textarea rows="3" autocomplete="autocomplete" formControlName="Note" matInput required></textarea>
+        <mat-error *ngIf="form.get( 'Note').errors?.required "> חובה להזין פרטים.</mat-error>
+
+    </mat-form-field>
+    <button class=" btn btn-primary mt-1 btn-block" style="max-width: 100px;" type="submit " [disabled]="!form.valid ">שמור</button>
+</form>

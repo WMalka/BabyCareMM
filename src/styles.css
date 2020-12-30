@@ -417,3 +417,22 @@ a:not([href]):not([tabindex]) {
         color: white;
     }
 }
+
+@keyframes pulse3 {
+    0% {
+        color: #ff5340;
+    }
+    100% {
+        color: transparent;
+    }
+}
+
+.mat-option-text {
+    text-align: right;
+    direction: rtl;
+}
+
+tr.mat-footer-row,
+tr.mat-row {
+    height: 35px!important;
+}

@@ -33,7 +33,7 @@ import { NgbdModalBasic } from '../modalBasic/modal-basic';
   logout() {
     localStorage.clear();
     this.user = null;
-    this.route.navigateByUrl("/login");
+    this.route.navigateByUrl("/home");
     this.userService.userChanged.next();
   }
   // open(content) {
