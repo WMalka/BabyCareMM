@@ -27,7 +27,7 @@
             <mat-error style="text-align: right;" *ngIf="form.get('baby').errors?.required"> חובה לבחור תינוק .</mat-error>
 
           </mat-form-field>
-    
+  
         <article class="card-body">
           <div class="row">
             <button mat-icon-button [disabled]="!form.valid" color="transparent"  (click)="openMealsModal();"
@@ -48,6 +48,17 @@
 
            </div>
         </article>
+        <div class="details" *ngIf="form.get('baby').value!= ''">
+          <p>
+            <span><strong>האם:</strong> {{form.get('baby').value.Users.Name}} &nbsp;<strong>ת.ז:</strong> {{form.get('baby').value.Users.UserId}} &nbsp;<strong>פלאפון:</strong> {{form.get('baby').value.Users.Phone}}</span>
+          </p> 
+          <p>
+          <span><strong> תאריך לידת התינוק:</strong> {{form.get('baby').value.DateTime_Of_Birth | date:"dd/MM/yyyy HH:mm"}} &nbsp;<strong>משקל:</strong> {{form.get('baby').value.Birth_weight}} גרם</span>
+        </p> 
+        <p>
+          <span><strong>הערות:</strong> {{form.get('baby').value.Note }} &nbsp;</span>
+        </p>   </div>
+        <br>
       </form>
         <!--card-body end .// -->
       </div>
@@ -59,5 +70,7 @@
 </div>
 
 <div *ngIf="babiesNoMealsArr.length>0" class="tcontainer"><div class="ticker-wrap"><div class="ticker-move">
-  <div *ngFor="let baby of babiesNoMealsArr" class="ticker-item" (click)="openModalAddMeal(baby.BabyId);"><mat-icon >sentiment_very_dissatisfied</mat-icon>  {{baby.Name}} - {{baby.BabyId}} </div>
+  <div *ngFor="let baby of babiesNoMealsArr" class="ticker-item" (click)="openModalAddMeal(baby.BabyId);">
+    <!-- <mat-icon >sentiment_very_dissatisfied</mat-icon>  -->
+     {{baby.Name}} {{baby.BabyId}} </div>
 </div></div></div>

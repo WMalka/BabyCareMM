@@ -23,5 +23,5 @@ export class Baby {
   public DiaperChanges: DiaperChange[];
   public Meals: Meals[];
   public Treatments: Treatments[];
-  public User: Users;
+  public Users: Users;
 }
