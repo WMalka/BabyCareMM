@@ -48,6 +48,15 @@
 
            </div>
         </article>
+        <div class="details" *ngIf="form.get('baby').value!= ''">
+        
+          <p>
+          <span><strong> תאריך לידת התינוק:</strong> {{form.get('baby').value.DateTime_Of_Birth | date:"dd/MM/yyyy HH:mm"}} &nbsp;<strong>משקל:</strong> {{form.get('baby').value.Birth_weight}} גרם</span>
+        </p> 
+        <p>
+          <span><strong>הערות:</strong> {{form.get('baby').value.Note }} &nbsp;</span>
+        </p>   </div>
+        <br>
       </form>
         <!--card-body end .// -->
       </div>

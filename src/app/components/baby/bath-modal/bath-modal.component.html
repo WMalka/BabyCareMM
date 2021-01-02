@@ -13,8 +13,8 @@
     <mat-form-field appearance="fill">
         <mat-label> פרטים </mat-label>
         <textarea rows="3" autocomplete="autocomplete" formControlName="Note" matInput required></textarea>
-        <mat-error *ngIf="form.get( 'Note').errors?.required "> חובה להזין פרטים.</mat-error>
+        <mat-error *ngIf="form.get( 'Note').errors?.required"> חובה להזין פרטים.</mat-error>
 
     </mat-form-field>
-    <button class=" btn btn-primary mt-1 btn-block" style="max-width: 100px;" type="submit " [disabled]="!form.valid ">שמור</button>
+    <button class=" btn btn-primary mt-1 btn-block" style="max-width: 100px;" type="submit" [disabled]="!form.valid">שמור</button>
 </form>

@@ -152,8 +152,3 @@ button[disabled] mat-icon {
     width: 40px;
     height: 30px;
 }
-
-.details p {
-    color: #0095b7;
-    margin-bottom: 0.5rem;
-}

@@ -436,3 +436,8 @@ tr.mat-footer-row,
 tr.mat-row {
     height: 35px!important;
 }
+
+.details p {
+    color: #0095b7;
+    margin-bottom: 0.5rem;
+}
