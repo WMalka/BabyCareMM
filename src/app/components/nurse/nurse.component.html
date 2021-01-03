@@ -55,9 +55,14 @@
           <p>
           <span><strong> תאריך לידת התינוק:</strong> {{form.get('baby').value.DateTime_Of_Birth | date:"dd/MM/yyyy HH:mm"}} &nbsp;<strong>משקל:</strong> {{form.get('baby').value.Birth_weight}} גרם</span>
         </p> 
-        <p>
-          <span><strong>הערות:</strong> {{form.get('baby').value.Note }} &nbsp;</span>
-        </p>   </div>
+        <p *ngIf="!isEditNote">
+          <span> <mat-icon (click)="isEditNote=true;" style="cursor: pointer;vertical-align: sub;">edit</mat-icon><strong>הערות:</strong> {{form.get('baby').value.Note }} &nbsp; </span>
+        </p> 
+        <p *ngIf="isEditNote" >
+          <span><mat-icon style="cursor: pointer;" (click)="isEditNote=false;">cancel</mat-icon><mat-icon (click)="saveNote(input.value);" style="cursor: pointer;">save</mat-icon><textarea rows="1" matInput #input>{{form.get('baby').value.Note }}</textarea></span>
+        </p>
+      
+      </div>
         <br>
       </form>
         <!--card-body end .// -->

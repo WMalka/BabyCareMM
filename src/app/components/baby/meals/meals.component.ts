@@ -24,6 +24,7 @@ export class MealsComponent implements OnInit {
   
     
   }
+  motherId:number;
   filterName='';
   displayedColumns: string[] = [
     'DateTime',
@@ -40,7 +41,12 @@ export class MealsComponent implements OnInit {
       this.babyId = this.data.babyId;
       this.getMeals();
     }
+    if(this.data && this.data.motherId)
+    {
+      this.motherId = this.data.motherId;
    
+
+    }
   }
 
   getMeals(){

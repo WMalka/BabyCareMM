@@ -19,7 +19,7 @@ export class LoginNurseComponent implements  OnInit {
     private router: Router
   ) {}
   f = this.fb.group({
-    tz: this.fb.control("", Validators.required),
+    tz: this.fb.control("",  [Validators.required, Validators.required,Validators.max(999999999),Validators.min(100000000) ]),
     password: this.fb.control("", [Validators.required]),
   });
   ngOnInit() {}

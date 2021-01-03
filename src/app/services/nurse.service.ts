@@ -27,6 +27,10 @@ export class NurseService {
   getBabiesByMotherId(motherId:string): Observable<Baby[]> {
     return this.http.get<Baby[]>(this.api + "babies/getBabiesByMotherId/"+motherId);
   }
+  UpdateNote(baby: Baby): Observable<boolean> {
+    return this.http.post<boolean>(this.api + "babies/UpdateNote", baby);
+  }
+
   
   //Meals
   GetMealsByBabyId(babyId: string): Observable<Meals[]> {
@@ -129,7 +133,33 @@ export class NurseService {
   GetMealsType(): Observable<MealType[]> {
     return this.http.get<MealType[]>(this.api + "MealsType/GetMealsType");
   }
+  AddMealType(mealType: MealType): Observable<MealType> {
+    return this.http.post<MealType>(
+      this.api + "MealsType/AddMealType",
+      mealType
+    );
+  }
+  UpdateMealType(mealType: MealType): Observable<MealType> {
+    return this.http.post<MealType>(
+      this.api + "MealsType/UpdateMealType",
+      mealType
+    );
+  }
+
+
   GetTreatmentType(): Observable<TreatmentType[]> {
     return this.http.get<TreatmentType[]>(this.api + "TreatmentType/GetTreatmentType");
+  }
+  AddTreatmentType(treatment: TreatmentType): Observable<TreatmentType> {
+    return this.http.post<TreatmentType>(
+      this.api + "TreatmentType/AddTreatmentType",
+      treatment
+    );
+  }
+  UpdateTreatmentType(treatment: TreatmentType): Observable<TreatmentType> {
+    return this.http.post<TreatmentType>(
+      this.api + "TreatmentType/UpdateTreatmentType",
+      treatment
+    );
   }
 }

@@ -17,7 +17,7 @@ export class Users{
     public Status: string;
 
 
-    public Babies: Baby;
+    public Babies: Baby[];
 
 }
     

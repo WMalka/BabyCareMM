@@ -5,10 +5,10 @@
         <form [formGroup]="f" (ngSubmit)="login();">
             <div class="form-group">
                 <label> תז  </label>
-                <input type="number" formControlName="tz" class="form-control" minlength="6" />
+                <input type="number" formControlName="tz" class="form-control" min="000000000" max="999999999" />
                 <div *ngIf="f.get('tz').errors?.required">חובה להזין ת.ז</div>
-                <div *ngIf="f.get('tz').errors?.minlength">ת.ז מכיל מינימום 6 תווים</div>
-
+                <div *ngIf="f.get('tz').errors?.min">חובה להזין מינימום 9 תווים.</div>
+                <div *ngIf="f.get('tz').errors?.max">חובה להזין מקסימום 10 תווים.</div>
             </div>
             <div class="form-group">
                 <label>סיסמא</label>

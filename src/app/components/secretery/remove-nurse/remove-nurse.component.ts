@@ -1,10 +1,11 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, Inject, OnInit } from "@angular/core";
 import { Users } from "src/app/models/user.model";
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { SecreteryService } from "src/app/services/secretery.service";
 import { SelectionModel } from "@angular/cdk/collections";
 import Swal from "sweetalert2";
+import { SecreteryComponentNewNurse } from "../registrationNurse/secretery.component.new.nurse";
 
 @Component({
   selector: 'app-remove-nurse',
@@ -17,7 +18,8 @@ export class RemoveNurseComponent  implements OnInit {
   nurses: Users[];
   dataSource: MatTableDataSource<Users>;
   constructor(
-    private secreteryService: SecreteryService
+    private secreteryService: SecreteryService, @Inject(MAT_DIALOG_DATA) public data: any,
+    public dialog: MatDialog
   ) {
   
     
@@ -54,16 +56,15 @@ export class RemoveNurseComponent  implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
  
-  openModal(buildId: number,userId?: number) {
-    // const dialogRef = this.dialog.open(AdminUsersModalComponent, {
-    //   data: { userId:userId,buildId:buildId },
-    // });
-    // dialogRef.afterClosed().subscribe((result) => {
-    //   console.log(`Dialog result: ${result}`);
-    //   this.getNursesByBuild(
-    //     this.buildSelectedId,
-    //   );
-    // });
+
+  openModal(id?: number) {
+    const dialogRef = this.dialog.open(SecreteryComponentNewNurse, {
+      data: { id:id},
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log(`Dialog result: ${result}`);
+      this.getNurses();
+    });
   }
 
 

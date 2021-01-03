@@ -11,6 +11,7 @@ import { Baby } from "src/app/models/baby.model";
 import { Users } from "src/app/models/user.model";
 import { NurseService } from "src/app/services/nurse.service";
 import { UsersService } from "src/app/services/users.service";
+import Swal from "sweetalert2";
 import { BathModalComponent } from "../baby/bath-modal/bath-modal.component";
 import { BathComponent } from "../baby/bath/bath.component";
 import { DiaperChangeComponent } from "../baby/diaper-change/diaper-change.component";
@@ -28,6 +29,7 @@ export class NurseComponent implements OnInit {
   babiesArr: Baby[] = [];
   babiesNoMealsArr: Baby[] = [];
   filteredBabies: Observable<Baby[]>;
+  isEditNote = false;
   form = this.fb.group({
     baby: this.fb.control("", Validators.required),
   });
@@ -72,23 +74,18 @@ export class NurseComponent implements OnInit {
       this.getAllBabies();
     });
   }
-  openDiaperChangesModal(){
-
+  openDiaperChangesModal() {
     const dialogRef = this.dialog.open(DiaperChangeComponent, {
       data: { babyId: this.form.value.baby.BabyId },
     });
-    dialogRef.afterClosed().subscribe((result) => {
-    });
+    dialogRef.afterClosed().subscribe((result) => {});
   }
-  openTreatmentsModal(){
-
+  openTreatmentsModal() {
     const dialogRef = this.dialog.open(TreatmentsComponent, {
       data: { babyId: this.form.value.baby.BabyId },
     });
-    dialogRef.afterClosed().subscribe((result) => {
-    });
+    dialogRef.afterClosed().subscribe((result) => {});
   }
-
 
   showError() {
     if (!this.form.valid || !this.form.value.baby.Meals) {
@@ -123,7 +120,7 @@ export class NurseComponent implements OnInit {
           baby: this.babiesArr.filter((x) => x.Id === baby.Id)[0],
         });
       }
-    
+
       const us = this.form.get("baby");
       this.filteredBabies = us.valueChanges.pipe(
         startWith(""),
@@ -146,6 +143,19 @@ export class NurseComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe((result) => {
       this.getAllBabies();
+    });
+  }
+  saveNote(val: string) {
+    const baby = <Baby>this.form.get("baby").value;
+    baby.Note = val;
+    this.nurseService.UpdateNote(baby).subscribe((x) => {
+      if (x) {
+        Swal.fire("", "השמירה בוצעה בהצלחה", "success");
+        this.form.patchValue({
+          baby: baby,
+        });
+        this.isEditNote = false;
+      }
     });
   }
 }

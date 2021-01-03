@@ -39,6 +39,10 @@ import { DiaperChangeModalComponent } from './components/baby/diaper-change-moda
 import { TreatmentsModalComponent } from './components/baby/treatments-modal/treatments-modal.component';
 import { BathModalComponent } from './components/baby/bath-modal/bath-modal.component';
 import { MealsModalComponent } from './components/baby/meals-modal/meals-modal.component';
+import { SetMealTypesComponent } from './components/secretery/set-meal-types/set-meal-types.component';
+import { SetTreatmentsTypesComponent } from './components/secretery/set-treatments-types/set-treatments-types.component';
+import { SetMealTypesModalComponent } from './components/secretery/set-meal-types-modal/set-meal-types-modal.component';
+import { SetTreatmentsTypesModalComponent } from './components/secretery/set-treatments-types-modal/set-treatments-types-modal.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +70,11 @@ import { MealsModalComponent } from './components/baby/meals-modal/meals-modal.c
     DiaperChangeModalComponent,
     TreatmentsModalComponent,
     BathModalComponent,
-    MealsModalComponent
+    MealsModalComponent,
+    SetMealTypesComponent,
+    SetTreatmentsTypesComponent,
+    SetMealTypesModalComponent,
+    SetTreatmentsTypesModalComponent
     
   ],
  exports: [

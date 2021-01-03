@@ -33,10 +33,11 @@ export class SecreteryService {
 
 
   }
-  getMotherById(userId: number){
-    return this.http.get<Users>(this.api+"users/getMotherById/"+userId);
-
-
+  getMotherById(id: number){
+    return this.http.get<Users>(this.api+"users/getMotherById/"+id);
+  }
+  getNurseById(id: number){
+    return this.http.get<Users>(this.api+"users/GetNurseById/"+id);
   }
   
   getBabyById(babyId: string): Observable<Baby> {
@@ -45,12 +46,20 @@ export class SecreteryService {
   addBaby(baby: Baby): Observable<Baby> {
     return this.http.post<Baby>(this.api+"babies/addBaby",baby);
   }
-  addMother(mother: Users): Observable<Baby> {
-    return this.http.post<Baby>(this.api+"users/addMother",mother);
+  addMother(mother: Users): Observable<Users> {
+    return this.http.post<Users>(this.api+"users/addMother",mother);
   }
-  addNurse(nurse: Users): Observable<Baby> {
-    return this.http.post<Baby>(this.api+"users/addNurse",nurse);
+  updateMother(mother: Users): Observable<boolean> {
+    return this.http.post<boolean>(this.api+"users/updateMother",mother);
   }
+  addNurse(nurse: Users): Observable<Users> {
+    return this.http.post<Users>(this.api+"users/addNurse",nurse);
+  }
+  updateNurse(nurse: Users): Observable<boolean> {
+    return this.http.post<boolean>(this.api+"users/updateNurse",nurse);
+  }
+
+  
 
   
 }

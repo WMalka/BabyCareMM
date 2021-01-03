@@ -15,6 +15,8 @@ import { LoginNurseComponent } from './components/login-nurse/login-nurse.compon
 import { LoginSecreteryComponent } from './components/login-secretery/login-secretery.component';
 import { RemoveNurseComponent } from './components/secretery/remove-nurse/remove-nurse.component';
 import { RemoveMotherComponent } from './components/secretery/remove-mother/remove-mother.component';
+import { SetMealTypesComponent } from './components/secretery/set-meal-types/set-meal-types.component';
+import { SetTreatmentsTypesComponent } from './components/secretery/set-treatments-types/set-treatments-types.component';
 //import { BabiesComponentMeal } from './../app/components/babies/babies.component.meal/babies.component.meal';
 
 // import {BabiesComponentMeal} from'./components/babies/babies.component.meal';//malkala
@@ -33,6 +35,10 @@ const routes: Routes = [
   {path:"secreterynewnurse",canActivate:[AuthGuardSecretery], component: SecreteryComponentNewNurse},
   {path:"secreteryremovenurse",canActivate:[AuthGuardSecretery], component: RemoveNurseComponent},
   {path:"secreteryremovemother",canActivate:[AuthGuardSecretery], component: RemoveMotherComponent},
+  {path:"meals-type",canActivate:[AuthGuardSecretery], component: SetMealTypesComponent},
+  {path:"treatments-type",canActivate:[AuthGuardSecretery], component: SetTreatmentsTypesComponent},
+
+ 
   { path: '**', component: HomeComponent },
   { path: '', pathMatch: 'full', redirectTo: 'home' },
  

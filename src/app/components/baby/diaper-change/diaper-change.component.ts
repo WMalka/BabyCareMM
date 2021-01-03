@@ -42,11 +42,7 @@ export class DiaperChangeComponent implements OnInit {
     if(this.data && this.data.motherId)
     {
       this.motherId = this.data.motherId;
-      this.displayedColumns = [
-        'DateTime',
-        'Time',
-        'Note',
-      ];
+   
 
     }
   }

@@ -6,6 +6,7 @@ import { SecreteryService } from "src/app/services/secretery.service";
 import { SelectionModel } from "@angular/cdk/collections";
 import Swal from "sweetalert2";
 import { RemoveMotherModalComponent } from "../remove-mother-modal/remove-mother-modal.component";
+import { SecreteryComponentNewMother } from "../registrationMother/secretery.component.new.mother";
 @Component({
   selector: "app-remove-mother",
   templateUrl: "./remove-mother.component.html",
@@ -64,32 +65,15 @@ export class RemoveMotherComponent  implements OnInit {
       this.getMothers( );
     });
   }
-
-
-  deleteUser(userId: number){
-    // Swal.fire({
-    //   title: 'מחיקת משתמש',
-    //   text: 'האם את/ה בטוח/ה שאת/ה רוצה למחוק את המשתמש מהמערכת?',
-    //   icon: 'warning',
-    //   showCancelButton: true,
-    //   confirmButtonText: 'כן',
-    //   cancelButtonText: 'לא'
-    // }).then((result) => {
-    //   if (result.value) {
-    //   this.secreteryService.deleteUser(userId).subscribe(x=>{
-    //     if(x)
-    //     {
-    //     Swal.fire("", "השמירה בוצעה בהצלחה", 'success');
-    //     this.getMothersByBuild(
-    //       this.buildSelectedId,
-    //     );
-    //     }
-   
-    //   });
-    //   } else if (result.dismiss === Swal.DismissReason.cancel) {
-      
-    //   }
-    // })
-
+  openModalEdit(id: number) {
+    const dialogRef = this.dialog.open(SecreteryComponentNewMother, {
+      data: { id:id },
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log(`Dialog result: ${result}`);
+      this.getMothers( );
+    });
   }
+  
+
 }

@@ -64,7 +64,7 @@ export class MothersComponent implements OnInit {
       console.log(`Dialog result: ${result}`);
     });
   }
-  openMealsModal() {
+  openMealsModal() {    
     const dialogRef = this.dialog.open(MealsComponent, {
       data: { babyId: this.form.value.baby.BabyId, motherId: this.mother.Id },
     });

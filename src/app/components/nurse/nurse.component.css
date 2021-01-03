@@ -83,7 +83,7 @@ button[disabled] mat-icon {
     width: 100%;
     overflow: hidden;
     position: absolute;
-    bottom: 10px;
+    bottom: 5px;
 }
 
 
@@ -151,4 +151,13 @@ button[disabled] mat-icon {
     font-weight: 100;
     width: 40px;
     height: 30px;
+}
+
+textarea {
+    max-width: 300px;
+    display: inline-block;
+    vertical-align: top;
+    border: 1px solid;
+    text-align: right;
+    direction: rtl;
 }
