@@ -1,1 +1,15 @@
-<p>set-treatments-types-modal works!</p>
+<form class="form-wrapper-modal" [formGroup]="form" (ngSubmit)="saveTreatmentType();">
+    <h1 *ngIf="!bathId; else newTreatmentType">הוספת סוג טיפול</h1>
+    <ng-template #newTreatmentType>
+        <h1>עדכון סוג טיפול</h1>
+    </ng-template>
+
+
+    <mat-form-field appearance="fill">
+        <mat-label> סוג הטיפול </mat-label>
+        <input type="text" autocomplete="autocomplete" formControlName="Treatment" matInput required>
+        <mat-error *ngIf="form.get( 'Treatment').errors?.required"> חובה להזין סוג טיפול.</mat-error>
+
+    </mat-form-field>
+    <button class=" btn btn-primary mt-1 btn-block" style="max-width: 100px;" type="submit" [disabled]="!form.valid">שמור</button>
+</form>

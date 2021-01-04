@@ -1,1 +1,15 @@
-<p>set-meal-types-modal works!</p>
+<form class="form-wrapper-modal" [formGroup]="form" (ngSubmit)="saveMealType();">
+    <h1 *ngIf="!bathId; else newMealType">הוספת סוג ארוחה</h1>
+    <ng-template #newMealType>
+        <h1>עדכון סוג ארוחה</h1>
+    </ng-template>
+
+
+    <mat-form-field appearance="fill">
+        <mat-label> סוג הארוחה </mat-label>
+        <input type="text" autocomplete="autocomplete" formControlName="Type" matInput required>
+        <mat-error *ngIf="form.get( 'Type').errors?.required"> חובה להזין סוג ארוחה.</mat-error>
+
+    </mat-form-field>
+    <button class=" btn btn-primary mt-1 btn-block" style="max-width: 100px;" type="submit" [disabled]="!form.valid">שמור</button>
+</form>
