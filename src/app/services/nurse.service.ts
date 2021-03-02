@@ -30,7 +30,12 @@ export class NurseService {
   UpdateNote(baby: Baby): Observable<boolean> {
     return this.http.post<boolean>(this.api + "babies/UpdateNote", baby);
   }
-
+  GetBabyById(babyId: string): Observable<Baby>{
+    return this.http.get<Baby>(this.api + "babies/GetBabyById/"+babyId)
+  }
+  GetBabyByIdentity(babyId: string): Observable<Baby>{
+    return this.http.get<Baby>(this.api + "babies/GetBabyByIdentity/"+babyId)
+  }
   
   //Meals
   GetMealsByBabyId(babyId: string): Observable<Meals[]> {

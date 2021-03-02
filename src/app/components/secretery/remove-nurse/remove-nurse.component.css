@@ -1,0 +1,6 @@
+table.mat-table {
+    overflow-x: auto;
+    max-width: 100%;
+    display: block;
+    font-size: 12px;
+}

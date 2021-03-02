@@ -127,7 +127,8 @@ button[disabled] mat-icon {
 
 .ticker-item {
     display: inline-block;
-    padding: 1rem;
+    vertical-align: middle;
+    padding: 0.65rem;
     line-height: 20px;
     border: 2px solid;
     border-radius: 50%;

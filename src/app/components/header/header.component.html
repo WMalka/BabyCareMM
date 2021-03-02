@@ -1,11 +1,11 @@
 <nav mat-tab-nav-bar mat-align-tabs="end">
     <a mat-tab-link>
-        <button mat-button [matMenuTriggerFor]="menu" routerLinkActive #rla3="routerLinkActive" [active]="rla3.isActive">כניסה</button>
-        <mat-menu #menu="matMenu">
-            <button mat-menu-item routerLink="/mother">אמא</button>
-            <button mat-menu-item routerLink="/nurse">אחות</button>
-            <button mat-menu-item routerLink="/secretery">מזכירה</button>
-        </mat-menu>
+        <button mat-button routerLink="/mother" routerLinkActive #rla3="routerLinkActive" [active]="rla3.isActive">כניסה</button>
+        <!-- <mat-menu #menu="matMenu"> -->
+            <!-- <button mat-menu-item routerLink="/mother">כניסה</button> -->
+            <!-- <button mat-menu-item routerLink="/nurse">אחות</button>
+            <button mat-menu-item routerLink="/secretery">מזכירה</button> -->
+        <!-- </mat-menu> -->
     </a>
     <a mat-tab-link class="home" routerLink="/home"> </a>
 

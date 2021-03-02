@@ -1,7 +1,6 @@
 /* @import '~@angular/material/prebuilt-themes/pink-bluegrey.css'; */
 
-html,
-body {
+html, body {
     height: 100%;
 }
 
@@ -27,16 +26,12 @@ body {
     /* font-family: Roboto, "Helvetica Neue", sans-serif; */
 }
 
-h1,
-h2,
-h3,
-h4 {
+h1, h2, h3, h4 {
     color: #0095b7;
     font-weight: bold;
 }
 
-.mat-progress-spinner.mat-accent circle,
-.mat-spinner.mat-accent circle {
+.mat-progress-spinner.mat-accent circle, .mat-spinner.mat-accent circle {
     stroke: #0095b7;
 }
 
@@ -55,8 +50,7 @@ h4 {
     width: 100%;
 }
 
-.mat-tab-group.mat-primary .mat-ink-bar,
-.mat-tab-nav-bar.mat-primary .mat-ink-bar {
+.mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
     background-color: #ff5340;
 }
 
@@ -69,8 +63,7 @@ button:focus {
     outline: none;
 }
 
-.body-content,
-.body-content-large {
+.body-content, .body-content-large {
     padding: 30px 60px 0px 60px;
     position: absolute;
     width: 30%;
@@ -129,9 +122,7 @@ button:focus {
     padding: .4rem 1rem;
 }
 
-.mat-h4,
-.mat-subheading-1,
-.mat-typography h4 {
+.mat-h4, .mat-subheading-1, .mat-typography h4 {
     margin: 0 0 5px;
 }
 
@@ -139,17 +130,13 @@ button:focus {
     margin-bottom: 0px;
 }
 
-.btn-primary:not(:disabled):not(.disabled).active,
-.btn-primary:not(:disabled):not(.disabled):active,
-.show>.btn-primary.dropdown-toggle {
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
     color: #fff;
     background-color: transparent;
     border-color: transparent;
 }
 
-.btn-primary:not(:disabled):not(.disabled).active:focus,
-.btn-primary:not(:disabled):not(.disabled):active:focus,
-.show>.btn-primary.dropdown-toggle:focus {
+.btn-primary:not(:disabled):not(.disabled).active:focus, .btn-primary:not(:disabled):not(.disabled):active:focus, .show>.btn-primary.dropdown-toggle:focus {
     box-shadow: none;
 }
 
@@ -172,8 +159,7 @@ button:focus {
     line-height: 1;
 }
 
-.btn-primary.disabled,
-.btn-primary:disabled {
+.btn-primary.disabled, .btn-primary:disabled {
     color: #fff;
     background-color: #898989;
     border-color: #545454;
@@ -268,9 +254,7 @@ table.mat-table {
     background-color: white;
 }
 
-table.mat-table th.mat-header-cell,
-table.mat-table td.mat-cell,
-td.mat-footer-cell {
+table.mat-table th.mat-header-cell, table.mat-table td.mat-cell, td.mat-footer-cell {
     border-bottom: 1px solid #ccc;
     text-align: center
 }
@@ -299,22 +283,16 @@ table.mat-table th.mat-header-cell::after {
     right: 0;
 }
 
-table.mat-table th.mat-header-cell:first-of-type,
-table.mat-table td.mat-cell:first-of-type,
-table.mat-table td.mat-footer-cell:first-of-type {
+table.mat-table th.mat-header-cell:first-of-type, table.mat-table td.mat-cell:first-of-type, table.mat-table td.mat-footer-cell:first-of-type {
     padding-right: 5px;
 }
 
-table.mat-table th.mat-header-cell:last-of-type,
-table.mat-table td.mat-cell:last-of-type,
-table.mat-table td.mat-footer-cell:last-of-type {
+table.mat-table th.mat-header-cell:last-of-type, table.mat-table td.mat-cell:last-of-type, table.mat-table td.mat-footer-cell:last-of-type {
     padding-right: 10px;
     padding-left: 10px;
 }
 
-th.mat-header-cell,
-td.mat-cell,
-td.mat-footer-cell {
+th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
     color: #191919;
 }
 
@@ -352,11 +330,11 @@ table .mat-icon {
     max-width: 900px;
     min-height: 200px;
     min-width: 500px;
+    max-height: 90vh !important;
+    overflow-y: auto;
 }
 
-.form-wrapper-modal-w h1,
-.form-wrapper-modal-t h1,
-.form-wrapper-modal h1 {
+.form-wrapper-modal-w h1, .form-wrapper-modal-t h1, .form-wrapper-modal h1 {
     background-color: #565656;
     color: white;
     line-height: 60px;
@@ -383,8 +361,7 @@ table .mat-icon {
     margin: auto;
 }
 
-.form-wrapper-modal .mat-form-field-appearance-fill .mat-form-field-flex,
-.mat-form-field-appearance-fill .mat-form-field-flex {
+.form-wrapper-modal .mat-form-field-appearance-fill .mat-form-field-flex, .mat-form-field-appearance-fill .mat-form-field-flex {
     background-color: white;
 }
 
@@ -432,12 +409,77 @@ a:not([href]):not([tabindex]) {
     direction: rtl;
 }
 
-tr.mat-footer-row,
-tr.mat-row {
+tr.mat-footer-row, tr.mat-row {
     height: 35px!important;
 }
 
 .details p {
     color: #0095b7;
     margin-bottom: 0.5rem;
+}
+@media only screen and (max-width:1024px) {
+  
+    button.big-button {
+        width: 100px!important;
+        height: 100px!important;
+    }
+    button.big-button .mat-icon {
+        font-size: 80px!important;
+    }
+    table.mat-table {
+        overflow-x: auto;
+        max-width: 100%;
+        display: table;
+        font-size: 12px;
+    }
+    table.mat-table td.mat-cell, table.mat-table td.mat-footer-cell, table.mat-table th.mat-header-cell {
+        padding: 0 10px;
+    }
+   
+}
+
+@media only screen and (max-width:768px) {
+    .body-content-large {
+        padding: 20px 20px;
+        width: 40%;
+        max-width: 90%;
+        right: 30%;
+        box-shadow: 1px 1px 2px white, 0 0 5px #ff5340, 0 0 5px white;
+        text-align: center;
+    }
+    button.big-button {
+        width: 100px!important;
+        height: 100px!important;
+    }
+    button.big-button .mat-icon {
+        font-size: 80px!important;
+    }
+    table.mat-table {
+        overflow-x: auto;
+        max-width: 100%;
+        display: table;
+        /*the treatments and meals list are not good with block and otherwise everything else is bad  */
+        font-size: 12px;
+    }
+    table.mat-table td.mat-cell, table.mat-table td.mat-footer-cell, table.mat-table th.mat-header-cell {
+        padding: 0 10px;
+    }
+    .mat-dialog-container {
+        min-width: 200px;
+        padding: 0px !important;
+    }
+    .form-row>.col, .form-row>[class*=col-] {
+        flex-basis: 100%;
+    }
+}
+
+@media only screen and (max-width:480px) {
+    .body-content-large {
+        padding: 20px 20px;
+        width: 40%;
+        max-width: 90%;
+        right: 7%;
+        box-shadow: 1px 1px 2px white, 0 0 5px #ff5340, 0 0 5px white;
+        text-align: center;
+    }
 }

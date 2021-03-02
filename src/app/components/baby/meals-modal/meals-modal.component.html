@@ -1,7 +1,7 @@
 <form class="form-wrapper-modal" [formGroup]="form" (ngSubmit)="saveMeal();">
-    <h1 *ngIf="!mealId; else newMeal">הוספת ארוחה</h1>
+    <h1 *ngIf="!mealId; else newMeal"> הוספת ארוחה - {{baby.Name}}</h1>
     <ng-template #newMeal>
-        <h1>עדכון ארוחה</h1>
+        <h1> עדכון ארוחה</h1>
     </ng-template>
     <mat-form-field appearance="fill">
         <mat-label> תאריך ושעה</mat-label>

@@ -27,6 +27,7 @@ export class UsersService {
   deleteBaby(babyId: string): Observable<null> {
     return this.http.delete<null>(this.api+"babies/deleteBaby/"+babyId);
   }
+  //sends tz and password to server and gets back the user or null.
   login(tz: string, password: string): Observable<Users> {
     return this.http.get<Users>(this.api+"users/login/" + tz + "/" + password);
   }

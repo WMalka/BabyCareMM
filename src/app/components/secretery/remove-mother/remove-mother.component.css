@@ -1,0 +1,7 @@
+table.mat-table {
+    overflow-x: auto;
+    max-width: 100%;
+    display: block;
+    /*the treatments and meals list are not good with block and otherwise everything else is bad  */
+    font-size: 12px;
+}

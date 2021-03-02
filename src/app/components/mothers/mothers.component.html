@@ -30,19 +30,19 @@
     
         <article class="card-body">
           <div class="row">
-            <button mat-icon-button [disabled]="!form.valid" color="transparent"  (click)="openMealsModal();"
+            <button mat-icon-button  class="big-button" [disabled]="!form.valid" color="transparent"  (click)="openMealsModal();"
             [ngClass]="showError()">
               <mat-icon matTooltip="ארוחות" >restaurant</mat-icon>
            </button>
-           <button mat-icon-button [disabled]="!form.valid" color="transparent" (click)="openTreatmentsModal();">
+           <button mat-icon-button  class="big-button" [disabled]="!form.valid" color="transparent" (click)="openTreatmentsModal();">
             <mat-icon matTooltip="טיפול">healing</mat-icon>
          </button>
           </div>
           <div class="row">
-            <button mat-icon-button [disabled]="!form.valid" color="transparent" (click)="openBathModal();">
+            <button mat-icon-button  class="big-button" [disabled]="!form.valid" color="transparent" (click)="openBathModal();">
               <mat-icon matTooltip="רחצה" >opacity</mat-icon>
            </button>
-           <button mat-icon-button [disabled]="!form.valid" color="transparent" (click)="openDiaperChangesModal();">
+           <button mat-icon-button class="big-button" [disabled]="!form.valid" color="transparent" (click)="openDiaperChangesModal();">
             <mat-icon matTooltip="החתלה">face</mat-icon>
          </button>
 

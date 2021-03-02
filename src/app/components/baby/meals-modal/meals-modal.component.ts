@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from "@angular/core";
 import { FormBuilder, Validators } from "@angular/forms";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
+import { Baby } from "src/app/models/baby.model";
 import { Meals } from "src/app/models/meal.model";
 import { MealType } from "src/app/models/mealType.model";
 import { NurseService } from "src/app/services/nurse.service";
@@ -29,7 +30,7 @@ export class MealsModalComponent implements OnInit {
   });
   babyId = "";
   meal: Meals;
-
+  baby = new Baby();
   ngOnInit(): void {
     if (this.data && this.data.id) {
       this.mealId = this.data.id;
@@ -39,6 +40,10 @@ export class MealsModalComponent implements OnInit {
     }
     if (this.data && this.data.babyId) {
       this.babyId = this.data.babyId;
+      this.nurseService.GetBabyByIdentity(this.data.babyId).subscribe((currentBaby) => {
+        this.baby = currentBaby;
+      })
+      
     }
     this.nurseService.GetMealsType().subscribe((mealsT) => {
       this.mealsTypes = mealsT;
